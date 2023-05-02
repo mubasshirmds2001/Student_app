@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "153605202720",
+    "project_id": "smartstudent-f511d",
+    "storage_bucket": "smartstudent-f511d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153605202720:android:41ad0661c7ae1b840ead45",
+        "android_client_info": {
+          "package_name": "com.example.login_activity_student"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "153605202720-r678uc4dak8n3lko72lsv9areq7vgom3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDFRWR6nrAR1mQ6zuee3kMu20WbGRKssfE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "153605202720-r678uc4dak8n3lko72lsv9areq7vgom3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
