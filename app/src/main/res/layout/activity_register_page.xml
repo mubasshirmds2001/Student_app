@@ -53,13 +53,31 @@
                 android:fontFamily="@font/gotham"
                 android:gravity="center"
                 android:shadowColor="#57000000"
-                android:text="@string/register_text"
+                android:text="Student Register"
                 android:textAlignment="center"
                 android:textColor="#FFFFFF"
                 android:textSize="28sp"
                 android:textStyle="bold"
                 />
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textColorHint="#000000">
+
+                <EditText
+                    android:id="@+id/edUSN"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/gilroy_extrabold"
+                    android:hint="@string/USN"
+                    android:inputType="text"
+                    android:textColor="@color/color"
+                    android:textSize="18sp"
+                    tools:ignore="InvalidId" />
+
+            </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"

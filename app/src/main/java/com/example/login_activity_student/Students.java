@@ -2,15 +2,24 @@ package com.example.login_activity_student;
 
 public class Students {
 
+    private String student_USN;
     private String student_name;
     private String student_email;
     private String student_dept;
     private String student_year;
     private String student_section;
 
-    public Students()
+    public Students(String USN, String name, String email, String dept, String year, String section)
     {
 
+    }
+
+    public String getStudent_USN() {
+        return student_USN;
+    }
+
+    public void setStudent_USN(String student_USN) {
+        this.student_USN = student_USN;
     }
 
     public String getStudent_name() {

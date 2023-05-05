@@ -6,13 +6,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class first_page extends AppCompatActivity {
     ImageView imageView1;
     ImageView imageView2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +37,7 @@ public class first_page extends AppCompatActivity {
         imageView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(first_page.this,register_page.class);
+                Intent intent = new Intent(first_page.this,Lecturer_register.class);
                 startActivity(intent);
             }
         });

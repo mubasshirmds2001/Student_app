@@ -48,7 +48,7 @@
             android:fontFamily="@font/gotham"
             android:gravity="center"
             android:shadowColor="#57000000"
-            android:text="@string/login_here"
+            android:text="Student Login"
             android:textAlignment="center"
             android:textColor="#FFFFFF"
             android:textSize="28sp"

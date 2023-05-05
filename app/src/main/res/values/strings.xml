@@ -28,4 +28,6 @@
     <string name="name2">Name</string>
     <string name="backtopage">backtopage</string>
     <string name="Dept">Dept</string>
+    <string name="USN">USN</string>
+    <string name="smart_track">Smart Track</string>
 </resources>

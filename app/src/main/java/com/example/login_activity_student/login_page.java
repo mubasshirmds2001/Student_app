@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -16,6 +18,7 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class login_page extends AppCompatActivity {
     ImageButton back;
@@ -23,11 +26,13 @@ public class login_page extends AppCompatActivity {
     private Button sign_in;
     private FirebaseAuth mAuth;
 
+
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
+
         back = (ImageButton) findViewById(R.id.imgbtn_back);
 
         back.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +57,14 @@ public class login_page extends AppCompatActivity {
 
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        startActivity(intent);
+    }
+
     private void loginUserAccount() {
 
         String email, password;
@@ -61,16 +74,19 @@ public class login_page extends AppCompatActivity {
         if (email.isEmpty()) {
             edlemail.setError("Email is required!!");
             edlemail.requestFocus();
+            return;
         }
         // email validation
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
             edlemail.setError("Invalid email address");
             edlemail.requestFocus();
+            return;
         }
 
         if (password.isEmpty()) {
             edlpassword.setError("Password is required!!");
             edlpassword.requestFocus();
+            return;
 
         }
 
@@ -78,9 +94,10 @@ public class login_page extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(login_page.this, MainActivity.class);
                     startActivity(intent);
+                    Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
+                    finish();
                 } else {
                     // Registration failed
                     Toast.makeText(

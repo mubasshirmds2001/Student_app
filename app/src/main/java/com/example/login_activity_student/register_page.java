@@ -25,12 +25,13 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 public class register_page extends AppCompatActivity {
     private TextView textView;
     private ImageButton back;
-    private EditText edname, edemail, edyear, eddept, edsection, edpassword, edconfirm_password;
+    private EditText edUSN, edname, edemail, edyear, eddept, edsection, edpassword, edconfirm_password;
     private Button sign_up;
     private FirebaseAuth mAuth;
 
@@ -72,18 +73,7 @@ public class register_page extends AppCompatActivity {
 
         // taking FirebaseAuth instance
         mAuth = FirebaseAuth.getInstance();
-
-        // below line is used to get the
-        // instance of our FIrebase database.
-        firebaseDatabase = FirebaseDatabase.getInstance();
-
-        // below line is used to get reference for our database.
-        databaseReference = firebaseDatabase.getReference("StudentsInfo");
-
-        // initializing our object
-        // class variable.
-        students = new Students();
-
+        edUSN = (EditText)findViewById(R.id.edUSN);
         edname = (EditText)findViewById(R.id.edname);
         edemail = (EditText)findViewById(R.id.edemail);
         eddept = (EditText)findViewById(R.id.eddept);
@@ -92,6 +82,10 @@ public class register_page extends AppCompatActivity {
         edpassword = (EditText)findViewById(R.id.edpassword);
         edconfirm_password = (EditText)findViewById(R.id.edcon_password);
         sign_up = (Button) findViewById(R.id.btn_signup);
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference("StudentsInfo");
+
 
         sign_up.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,8 +96,9 @@ public class register_page extends AppCompatActivity {
     }
 
     private void registerNewUser() {
-        String name, email, year, dept, section, password, confirmpassword;
+        String USN, name, email, year, dept, section, password, confirmpassword;
         //String emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+";
+        USN = edUSN.getText().toString();
         name = edname.getText().toString();
         email = edemail.getText().toString();
         dept = edyear.getText().toString();
@@ -112,14 +107,22 @@ public class register_page extends AppCompatActivity {
         password = edpassword.getText().toString();
         confirmpassword = edconfirm_password.getText().toString();
 
+        if (USN.isEmpty()) {
+            edUSN.setError("USN is required!");
+            edUSN.requestFocus();
+            return;
+        }
+
         if (name.isEmpty()) {
             edname.setError("Name is required!");
             edname.requestFocus();
+            return;
         }
 
         if (email.isEmpty()) {
             edemail.setError("Email is required!!");
             edemail.requestFocus();
+            return;
         }
         // email validation
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
@@ -131,21 +134,25 @@ public class register_page extends AppCompatActivity {
         if (dept.isEmpty()) {
             edyear.setError("Dept is required!!");
             edyear.requestFocus();
+            return;
         }
 
         if (year.isEmpty()) {
             edyear.setError("Year is required!!");
             edyear.requestFocus();
+            return;
         }
 
         if (section.isEmpty()) {
             edsection.setError("Section is required!!");
             edsection.requestFocus();
+            return;
         }
 
         if (password.isEmpty()) {
             edpassword.setError("Password is required!!");
             edpassword.requestFocus();
+            return;
         }
         if (password.length() < 8) {
             edpassword.setError("Password must be at least 8 characters");
@@ -163,36 +170,33 @@ public class register_page extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    adddatatofirebase(name,email,dept,year,section);
-                    Intent intent = new Intent(register_page.this, login_page.class);
-                    startActivity(intent);
+                    Students student = new Students(USN,name,email,dept,year,section);
+                    student.setStudent_USN(USN);
+                    student.setStudent_name(name);
+                    student.setStudent_email(email);
+                    student.setStudent_dept(dept);
+                    student.setStudent_year(year);
+                    student.setStudent_section(section);
+                    FirebaseDatabase.getInstance().getReference("StudentsInfo").child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+
+                            if(task.isSuccessful()){
+                                Toast.makeText(register_page.this, "Student has registered successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(register_page.this, login_page.class);
+                                startActivity(intent);
+                            }
+                            else{
+                                Toast.makeText(register_page.this, "Failed to register! try again.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(register_page.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }else{
+                    Toast.makeText(register_page.this, "Failed to register! try again.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(register_page.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                 }
             }
         });
-    }
-
-    private void adddatatofirebase(String name, String email, String dept, String year, String section) {
-        // below lines of code is used to set
-        // data in our object class.
-        students.setStudent_name(name);
-        students.setStudent_email(email);
-        students.setStudent_dept(dept);
-        students.setStudent_year(year);
-        students.setStudent_section(section);
-
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                databaseReference.setValue(students);
-                Toast.makeText(getApplicationContext(), "Registration successful!", Toast.LENGTH_LONG).show();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(
-                        getApplicationContext(), "Registration failed!!" + " Please try again later", Toast.LENGTH_LONG).show();
-            }
-        });
-
     }
 }
