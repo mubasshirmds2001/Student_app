@@ -98,7 +98,7 @@ public class Marks_activity extends AppCompatActivity {
                             // Create a Marks object with the entered marks
                             Marks marks = new Marks(subject1Marks, subject2Marks, subject3Marks, subject4Marks, subject5Marks, subject6Marks, subject7Marks, subject8Marks, subject9Marks);
 
-                            DatabaseReference newChildRef = selectedStudentRef.child(studentId).child("Marks");
+                            DatabaseReference newChildRef = selectedStudentRef.child("Marks");
                             newChildRef.setValue(marks).addOnSuccessListener(new OnSuccessListener<Void>() {
                                 @Override
                                 public void onSuccess(Void unused) {

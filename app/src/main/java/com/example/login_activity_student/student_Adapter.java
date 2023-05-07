@@ -64,6 +64,16 @@ import java.util.ArrayList;
 
                     // Get the student ID from the tag
                     String studentId = view.getTag().toString();
+                    String studentName = view.getTag().toString();
+
+                    // Create the intent to start the new activity
+                    Intent intent1 = new Intent(context, Student_Home.class);
+
+                    // Pass the selected student ID as an extra
+                    intent1.putExtra("studentName", studentName);
+
+                    // Start the activity
+                    context.startActivity(intent1);
 
                     // Create the intent to start the new activity
                     Intent intent = new Intent(context, Marks_activity.class);
