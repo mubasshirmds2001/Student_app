@@ -101,7 +101,7 @@ public class register_page extends AppCompatActivity {
         USN = edUSN.getText().toString();
         name = edname.getText().toString();
         email = edemail.getText().toString();
-        dept = edyear.getText().toString();
+        dept = eddept.getText().toString();
         year = edyear.getText().toString();
         section = edsection.getText().toString();
         password = edpassword.getText().toString();

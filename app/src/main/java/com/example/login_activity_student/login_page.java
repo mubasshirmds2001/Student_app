@@ -20,6 +20,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import java.util.Objects;
+
 public class login_page extends AppCompatActivity {
     ImageButton back;
     private EditText edlemail, edlpassword;
@@ -60,9 +62,11 @@ public class login_page extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        Intent intent = new Intent(Intent.ACTION_MAIN);
-        intent.addCategory(Intent.CATEGORY_HOME);
-        startActivity(intent);
+//        Intent intent = new Intent(Intent.ACTION_MAIN);
+//        intent.addCategory(Intent.CATEGORY_HOME);
+//        startActivity(intent);
+        moveTaskToBack(true);
+        finish();
     }
 
     private void loginUserAccount() {
@@ -94,7 +98,7 @@ public class login_page extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent intent = new Intent(login_page.this, MainActivity.class);
+                    Intent intent = new Intent(login_page.this, Student_Home.class);
                     startActivity(intent);
                     Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
                     finish();

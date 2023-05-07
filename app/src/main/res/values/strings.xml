@@ -30,4 +30,24 @@
     <string name="Dept">Dept</string>
     <string name="USN">USN</string>
     <string name="smart_track">Smart Track</string>
+    <string name="usn">USN</string>
+    <string name="dept">DEPT</string>
+    <string name="year1">YEAR</string>
+    <string name="section2">SECTION</string>
+    <string name="add_cie_marks_details">Add CIE Marks Details</string>
+    <string name="max">Max</string>
+    <string name="sem">Marks</string>
+    <string name="max2">Max</string>
+    <string name="select_an_option">Select an option:</string>
+    <string name="enter_text">Enter text</string>
+    <string name="basics_of_programming_n_22mca110">Basics of Programming\n (22MCA110)</string>
+    <string name="computer_networks_n_22mca14">Computer Networks\n(22MCA14)</string>
+    <string name="computer_networks_lab_n_22mca17">Computer Networks Lab\n(22MCA17)</string>
+    <string name="data_structures_nalgorithms_lab_22mca16"><![CDATA[Data Structures & \nAlgorithms Lab(22MCA16)]]></string>
+    <string name="mathematical_foundation_for_c_a_22mca11">Mathematical Foundation for C.A(22MCA11)</string>
+    <string name="research_methodology_ipr_22mca16"><![CDATA[Research Methodology & IPR(22MCA16)]]></string>
+    <string name="operating_system_concepts_22mca12">Operating System Concepts(22MCA12)</string>
+    <string name="design_analysis_of_algorithms_22mca15"><![CDATA[Design & Analysis of Algorithms(22MCA15)]]></string>
+    <string name="data_structures_n_22mca13">Data Structures\n(22MCA13)</string>
+    <string name="add_marks">ADD MARKS</string>
 </resources>

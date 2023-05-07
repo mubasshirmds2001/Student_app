@@ -9,8 +9,17 @@ public class Students {
     private String student_year;
     private String student_section;
 
-    public Students(String USN, String name, String email, String dept, String year, String section)
+    public Students(String student_USN, String student_name, String student_email, String student_dept, String student_year, String student_section)
     {
+            this.student_USN=student_USN;
+            this.student_name=student_name;
+            this.student_email=student_email;
+            this.student_dept=student_dept;
+            this.student_year=student_year;
+            this.student_section=student_section;
+    }
+
+    public Students(){
 
     }
 
