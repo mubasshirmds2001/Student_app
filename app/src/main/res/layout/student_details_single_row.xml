@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:baselineAligned="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="1dp"
+        android:layout_marginBottom="10dp"
+        android:weightSum="100"
+        android:layout_weight="1"
+        android:baselineAligned="false">
+
+        <TextView
+            android:id="@+id/usntv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:text="USN :"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:textColor="@color/color"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/usn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:text="@string/usn"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/color"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:baselineAligned="false">
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:weightSum="100"
+        android:layout_weight="1"
+        android:baselineAligned="false">
+
+        <TextView
+            android:id="@+id/nametv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:text="NAME :"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:textColor="@color/color"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:text="NAME"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/color"
+            android:textSize="20sp"
+            />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="60dp"
+        android:gravity="center"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"
+            android:weightSum="100"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/depttv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="DEPT :"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/dept"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="@string/dept"
+                android:textAlignment="textStart"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/color"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/yeartv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:layout_marginLeft="60dp"
+                android:text="YEAR :"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:id="@+id/year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:layout_marginLeft="10dp"
+                android:text="@string/year1"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="10dp"
+        android:baselineAligned="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:weightSum="100"
+        android:layout_weight="1"
+        android:baselineAligned="false">
+
+        <TextView
+            android:id="@+id/sectiontv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:text="SECTION :"
+            android:textAlignment="textStart"
+            android:textColor="@color/color"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:id="@+id/section"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:layout_marginLeft="10dp"
+            android:text="@string/section2"
+            android:textAlignment="textStart"
+            android:textColor="@color/color"
+            android:textSize="20sp"
+            />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+

@@ -177,7 +177,10 @@ public class register_page extends AppCompatActivity {
                     student.setStudent_dept(dept);
                     student.setStudent_year(year);
                     student.setStudent_section(section);
-                    FirebaseDatabase.getInstance().getReference("StudentsInfo").child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
+
+                    // Set a custom ID for the student node
+                    String studentId = USN.toString(); // Replace with your own custom ID
+                    FirebaseDatabase.getInstance().getReference("StudentsInfo").child(studentId).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
