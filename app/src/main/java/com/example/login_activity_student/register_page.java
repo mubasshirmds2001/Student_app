@@ -180,6 +180,15 @@ public class register_page extends AppCompatActivity {
 
                     // Set a custom ID for the student node
                     String studentId = USN.toString(); // Replace with your own custom ID
+                    // Create a new intent
+                    Intent intent = new Intent(register_page.this, Marks_activity.class);
+
+                    // Add the student ID as an extra to the intent
+                    intent.putExtra("STUDENT_ID", studentId);
+
+                    // Start the other activity
+                    startActivity(intent);
+
                     FirebaseDatabase.getInstance().getReference("StudentsInfo").child(studentId).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {

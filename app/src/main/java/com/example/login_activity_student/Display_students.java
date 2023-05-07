@@ -29,6 +29,8 @@ public class Display_students extends AppCompatActivity implements OnItemClickLi
 
     DatabaseReference databaseReference;
 
+    private ArrayList<Students> mStudentList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,8 +41,7 @@ public class Display_students extends AppCompatActivity implements OnItemClickLi
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(Display_students.this));
-        adapter = new student_Adapter();
-
+        adapter = new student_Adapter(this,mStudentList);
         recyclerView.setAdapter(adapter);
 
         adapter.setOnItemClickListener(new student_Adapter.OnItemClickListener() {

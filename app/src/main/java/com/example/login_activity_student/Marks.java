@@ -13,19 +13,19 @@ public class Marks {
     private int subject9;
 
     public Marks(String subject1Marks, String subject2Marks, String subject3Marks, String subject4Marks, String subject5Marks, String subject6Marks, String subject7Marks, String subject8Marks, String subject9Marks) {
-        // Default constructor required for calls to DataSnapshot.getValue(Marks.class)
+        this.subject1 = Integer.parseInt(subject1Marks);
+        this.subject2 = Integer.parseInt(subject2Marks);
+        this.subject3 = Integer.parseInt(subject3Marks);
+        this.subject4 = Integer.parseInt(subject4Marks);
+        this.subject5 = Integer.parseInt(subject5Marks);
+        this.subject6 = Integer.parseInt(subject6Marks);
+        this.subject7 = Integer.parseInt(subject7Marks);
+        this.subject8 = Integer.parseInt(subject8Marks);
+        this.subject9 = Integer.parseInt(subject9Marks);
     }
 
-    public Marks(int subject1, int subject2, int subject3, int subject4, int subject5, int subject6, int subject7, int subject8, int subject9) {
-        this.subject1 = subject1;
-        this.subject2 = subject2;
-        this.subject3 = subject3;
-        this.subject4 = subject4;
-        this.subject5 = subject5;
-        this.subject6 = subject6;
-        this.subject7 = subject7;
-        this.subject8 = subject8;
-        this.subject9 = subject9;
+
+    public Marks(){
     }
 
     public int getSubject1() {

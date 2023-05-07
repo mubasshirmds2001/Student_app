@@ -12,7 +12,9 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -44,7 +46,7 @@ public class Splash_Activity extends AppCompatActivity {
         logo = findViewById(R.id.logo);
         logoText = findViewById(R.id.logo_text);
         tagLine = findViewById(R.id.tagline);
-        footer = findViewById(R.id.footer);
+        //
 
         scale = AnimationUtils.loadAnimation(this, R.anim.scale);
         fade = AnimationUtils.loadAnimation(this, R.anim.fade);
@@ -52,7 +54,7 @@ public class Splash_Activity extends AppCompatActivity {
         logo.setAnimation(scale);
         logoText.setAnimation(fade);
         tagLine.setAnimation(fade);
-        footer.setAnimation(fade);
+        //footer.setAnimation(fade);
 
 //        new Handler().postDelayed(new Runnable() {
 //                                      @Override
@@ -69,13 +71,23 @@ public class Splash_Activity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                loginDeciderclass();
+                mAuth = FirebaseAuth.getInstance();
+                FirebaseUser user = mAuth.getCurrentUser();
+                if(user!=null){
+                    loginDeciderclass();
+                }else
+                {
+                    startActivity(new Intent(getApplicationContext(),first_page.class));
+                    finish();
+                }
             }
         }, 2000);
         }
 
     private void loginDeciderclass() {
-        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+        FirebaseApp.initializeApp(this);
+        mAuth = FirebaseAuth.getInstance();
+        FirebaseUser user = mAuth.getCurrentUser();
         if (user != null) {
             String uid = user.getUid();
             DatabaseReference databaseRef = FirebaseDatabase.getInstance().getReference("LecturersInfo").child(uid);
@@ -96,15 +108,12 @@ public class Splash_Activity extends AppCompatActivity {
 
                 @Override
                 public void onCancelled(@NonNull DatabaseError error) {
+                    // Handle database errors here
+                    Toast.makeText(getApplicationContext(), "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
                     finish();
                 }
             });
         }
-        else {
-            startActivity(new Intent(getApplicationContext(),first_page.class));
-            finish();
-        }
-
     }
 
     @Override

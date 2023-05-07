@@ -1,6 +1,8 @@
 package com.example.login_activity_student;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,12 @@ import java.util.ArrayList;
         private ArrayList<Students> mStudentList;
         private OnItemClickListener mlistener;
         private LayoutInflater mInflater;
+        private Context context;
+
+        public student_Adapter(Context context,ArrayList<Students> mStudentList) {
+            this.context = context;
+            this.mStudentList= mStudentList;
+        }
 
         public interface OnItemClickListener {
             void onItemClick(Students students);
@@ -45,12 +53,26 @@ import java.util.ArrayList;
             holder.student_year.setText(students.getStudent_year());
             holder.student_section.setText(students.getStudent_section());
 
+            holder.itemView.setTag(students.getStudent_USN());
+
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (mlistener != null) {
                         mlistener.onItemClick(students);
                     }
+
+                    // Get the student ID from the tag
+                    String studentId = view.getTag().toString();
+
+                    // Create the intent to start the new activity
+                    Intent intent = new Intent(context, Marks_activity.class);
+
+                    // Pass the selected student ID as an extra
+                    intent.putExtra("studentId", studentId);
+
+                    // Start the activity
+                    context.startActivity(intent);
                 }
             });
         }

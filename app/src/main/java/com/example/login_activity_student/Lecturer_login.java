@@ -91,7 +91,7 @@ public class Lecturer_login extends AppCompatActivity {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful()) {
-                    Intent intent = new Intent(Lecturer_login.this, MainActivity.class);
+                    Intent intent = new Intent(Lecturer_login.this, Lecturer_Home.class);
                     startActivity(intent);
                     Toast.makeText(getApplicationContext(), "Login successful!", Toast.LENGTH_LONG).show();
                     finish();
