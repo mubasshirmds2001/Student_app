@@ -178,23 +178,17 @@ public class register_page extends AppCompatActivity {
                     student.setStudent_year(year);
                     student.setStudent_section(section);
 
-                    // Set a custom ID for the student node
-                    String studentId = USN.toString(); // Replace with your own custom ID
-                    // Create a new intent
-                    Intent intent = new Intent(register_page.this, Marks_activity.class);
 
-                    // Add the student ID as an extra to the intent
-                    intent.putExtra("STUDENT_ID", studentId);
-
-                    // Start the other activity
-                    startActivity(intent);
-
-                    FirebaseDatabase.getInstance().getReference("StudentsInfo").child(studentId).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    FirebaseDatabase.getInstance().getReference("StudentsInfo").child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
                             if(task.isSuccessful()){
                                 Toast.makeText(register_page.this, "Student has registered successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent1 = new Intent(register_page.this, Marks_activity.class);
+                                intent1.putExtra("studentId", FirebaseAuth.getInstance().getCurrentUser().getUid());
+                                startActivity(intent1);
+
                                 Intent intent = new Intent(register_page.this, login_page.class);
                                 startActivity(intent);
                             }

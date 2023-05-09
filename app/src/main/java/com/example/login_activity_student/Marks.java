@@ -2,6 +2,7 @@ package com.example.login_activity_student;
 
 public class Marks {
 
+    private String studentId;
     private int subject1;
     private int subject2;
     private int subject3;
@@ -12,7 +13,8 @@ public class Marks {
     private int subject8;
     private int subject9;
 
-    public Marks(String subject1Marks, String subject2Marks, String subject3Marks, String subject4Marks, String subject5Marks, String subject6Marks, String subject7Marks, String subject8Marks, String subject9Marks) {
+    public Marks(String studentId, String subject1Marks, String subject2Marks, String subject3Marks, String subject4Marks, String subject5Marks, String subject6Marks, String subject7Marks, String subject8Marks, String subject9Marks) {
+        this.studentId = studentId;
         this.subject1 = Integer.parseInt(subject1Marks);
         this.subject2 = Integer.parseInt(subject2Marks);
         this.subject3 = Integer.parseInt(subject3Marks);
@@ -25,7 +27,15 @@ public class Marks {
     }
 
 
-    public Marks(){
+    public Marks(String subject1Marks, String subject2Marks, String subject3Marks, String subject4Marks, String subject5Marks, String subject6Marks, String subject7Marks, String subject8Marks, String subject9Marks){
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
     }
 
     public int getSubject1() {

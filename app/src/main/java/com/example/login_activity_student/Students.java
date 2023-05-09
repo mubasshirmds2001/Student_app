@@ -3,6 +3,7 @@ package com.example.login_activity_student;
 public class Students {
 
     private String student_USN;
+    private String user_id;
     private String student_name;
     private String student_email;
     private String student_dept;
@@ -69,5 +70,13 @@ public class Students {
 
     public void setStudent_section(String student_section) {
         this.student_section = student_section;
+    }
+
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 }

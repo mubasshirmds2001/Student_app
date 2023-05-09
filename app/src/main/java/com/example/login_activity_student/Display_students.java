@@ -24,57 +24,60 @@ import java.util.ArrayList;
 public class Display_students extends AppCompatActivity implements OnItemClickListener {
 
     private student_Adapter adapter;
-
     private RecyclerView recyclerView;
-
-    DatabaseReference databaseReference;
-
+    private DatabaseReference databaseReference;
     private ArrayList<Students> mStudentList;
-
+    private String currentUserUid;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_students);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("StudentsInfo");
+        currentUserUid = getIntent().getStringExtra("selectedStudentUid");
 
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(Display_students.this));
-        adapter = new student_Adapter(this,mStudentList);
+        mStudentList = new ArrayList<>();
+        adapter = new student_Adapter(this, mStudentList, currentUserUid);
         recyclerView.setAdapter(adapter);
 
-        adapter.setOnItemClickListener(new student_Adapter.OnItemClickListener() {
-            @Override
-            public void onItemClick(Students students) {
-                String studentUsn = students.getStudent_USN();
-                Intent intent = new Intent(Display_students.this, Marks_activity.class);
-                intent.putExtra("USN", studentUsn);
-                startActivity(intent);
-                Toast.makeText(Display_students.this, "Clicked on " + students.getStudent_name(), Toast.LENGTH_LONG).show();
-                startActivity(new Intent(Display_students.this,Marks_activity.class));
-                finish();
-            }
-        });
+        if (currentUserUid != null && !currentUserUid.isEmpty()) {
 
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                ArrayList<Students> students = new ArrayList<>();
+            databaseReference = FirebaseDatabase.getInstance().getReference("StudentsInfo").child(currentUserUid).child("Marks");
+            databaseReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    ArrayList<Students> students = new ArrayList<>();
 
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    Students student = snapshot.getValue(Students.class);
-                    students.add(student);
+                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                        Students student = snapshot.getValue(Students.class);
+                        students.add(student);
+                    }
+                    adapter.setStudents(students);
                 }
-                adapter.setStudents(students);
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                //Log.e(TAG, "Failed to read value.", databaseError.toException());
-            }
-        });
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+                    //Log.e(TAG, "Failed to read value.", databaseError.toException());
+                }
+            });
+
+//            adapter.setOnItemClickListener(new student_Adapter.OnItemClickListener() {
+//                @Override
+//                public void onItemClick(Students students, String currentUserUid) {
+//                    Intent intent = new Intent(Display_students.this, Marks_activity.class);
+//                    intent.putExtra("currentUserUid", currentUserUid);
+//                    startActivity(intent);
+//                    Intent intent1 = new Intent(Display_students.this, Marks_activity.class);
+//                    intent.putExtra("selectedStudentUid", students.getUser_id());
+//                    startActivity(intent1);
+//                    Toast.makeText(Display_students.this, "Clicked on " + students.getStudent_name(), Toast.LENGTH_LONG).show();
+//                    finish();
+//                }
+//            });
+        }
     }
 
     @Override
@@ -89,6 +92,7 @@ public class Display_students extends AppCompatActivity implements OnItemClickLi
 
     @Override
     public void onItemClick(int position) {
-
+        Students clickedStudent = mStudentList.get(position);
+        adapter.setOnItemClickListener(clickedStudent, currentUserUid);
     }
 }

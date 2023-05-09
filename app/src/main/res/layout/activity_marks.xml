@@ -66,18 +66,21 @@
             tools:ignore="UnusedAttribute" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="80dp"
+            android:layout_width="60dp"
             android:layout_height="49dp"
             android:layout_marginStart="10dp"
             android:textColorHint="#000000">
 
             <EditText
                 android:id="@+id/Max1"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="49dp"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:hint="@string/max"
-                android:inputType="text"
+                android:text="50"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
                 android:textColor="@color/color"
                 android:textSize="18sp"
                 tools:ignore="InvalidId"
@@ -130,22 +133,25 @@
             tools:targetApi="o" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="80dp"
+            android:layout_width="60dp"
             android:layout_height="49dp"
             android:layout_marginStart="10dp"
             android:textColorHint="#000000">
 
             <EditText
                 android:id="@+id/Max2"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="49dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:hint="@string/max2"
-                android:inputType="text"
+                android:hint="@string/max"
+                android:text="50"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
                 android:textColor="@color/color"
                 android:textSize="18sp"
-                android:autofillHints="50"
-                tools:ignore="InvalidId" />
+                tools:ignore="InvalidId"
+                android:autofillHints="50" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -193,22 +199,25 @@
             tools:targetApi="o" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="80dp"
+            android:layout_width="60dp"
             android:layout_height="49dp"
             android:layout_marginStart="10dp"
             android:textColorHint="#000000">
 
             <EditText
                 android:id="@+id/Max3"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="49dp"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:hint="@string/max"
-                android:inputType="text"
+                android:text="50"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
                 android:textColor="@color/color"
                 android:textSize="18sp"
                 tools:ignore="InvalidId"
-                android:autofillHints="50"/>
+                android:autofillHints="50" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -256,22 +265,25 @@
             tools:targetApi="o" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="80dp"
+            android:layout_width="60dp"
             android:layout_height="49dp"
             android:layout_marginStart="10dp"
             android:textColorHint="#000000">
 
             <EditText
                 android:id="@+id/Max4"
-                android:layout_width="80dp"
-                android:autofillHints="50"
+                android:layout_width="60dp"
                 android:layout_height="49dp"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:hint="@string/max"
-                android:inputType="text"
+                android:text="50"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
                 android:textColor="@color/color"
                 android:textSize="18sp"
-                tools:ignore="InvalidId" />
+                tools:ignore="InvalidId"
+                android:autofillHints="50" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -318,22 +330,25 @@
             tools:targetApi="o" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="80dp"
+            android:layout_width="60dp"
             android:layout_height="49dp"
             android:layout_marginStart="10dp"
             android:textColorHint="#000000">
 
             <EditText
                 android:id="@+id/Max5"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="49dp"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:hint="@string/max"
-                android:inputType="text"
+                android:text="50"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
                 android:textColor="@color/color"
                 android:textSize="18sp"
                 tools:ignore="InvalidId"
-                android:autofillHints="50"/>
+                android:autofillHints="50" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -381,22 +396,25 @@
             tools:targetApi="o" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="80dp"
+            android:layout_width="60dp"
             android:layout_height="49dp"
             android:layout_marginStart="10dp"
             android:textColorHint="#000000">
 
             <EditText
                 android:id="@+id/Max6"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="49dp"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:hint="@string/max"
-                android:inputType="text"
+                android:text="50"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
                 android:textColor="@color/color"
                 android:textSize="18sp"
                 tools:ignore="InvalidId"
-                android:autofillHints="50"/>
+                android:autofillHints="50" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -444,22 +462,25 @@
             tools:targetApi="o" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="80dp"
+            android:layout_width="60dp"
             android:layout_height="49dp"
             android:layout_marginStart="10dp"
             android:textColorHint="#000000">
 
             <EditText
                 android:id="@+id/Max7"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="49dp"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:hint="@string/max"
-                android:inputType="text"
+                android:text="50"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
                 android:textColor="@color/color"
                 android:textSize="18sp"
                 tools:ignore="InvalidId"
-                android:autofillHints="50"/>
+                android:autofillHints="50" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -507,22 +528,25 @@
             tools:targetApi="o" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="80dp"
+            android:layout_width="60dp"
             android:layout_height="49dp"
             android:layout_marginStart="10dp"
             android:textColorHint="#000000">
 
             <EditText
                 android:id="@+id/Max8"
-                android:layout_width="80dp"
+                android:layout_width="60dp"
                 android:layout_height="49dp"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:hint="@string/max"
-                android:inputType="text"
+                android:text="50"
+                android:inputType="none"
+                android:focusable="false"
+                android:clickable="false"
                 android:textColor="@color/color"
                 android:textSize="18sp"
                 tools:ignore="InvalidId"
-                android:autofillHints="50"/>
+                android:autofillHints="50" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -570,22 +594,25 @@
                     tools:targetApi="o" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="80dp"
+                    android:layout_width="60dp"
                     android:layout_height="49dp"
                     android:layout_marginStart="10dp"
                     android:textColorHint="#000000">
 
                     <EditText
                         android:id="@+id/Max9"
-                        android:layout_width="80dp"
+                        android:layout_width="60dp"
                         android:layout_height="49dp"
                         android:fontFamily="@font/gilroy_extrabold"
                         android:hint="@string/max"
-                        android:inputType="text"
+                        android:text="50"
+                        android:inputType="none"
+                        android:focusable="false"
+                        android:clickable="false"
                         android:textColor="@color/color"
                         android:textSize="18sp"
                         tools:ignore="InvalidId"
-                        android:autofillHints="50"/>
+                        android:autofillHints="50" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 

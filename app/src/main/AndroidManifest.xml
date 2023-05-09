@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Login_Activity_student"
         tools:targetApi="31">
         <activity
+            android:name=".CIE_decider"
+            android:exported="false" />
+        <activity
             android:name=".Display_marks"
             android:exported="false" />
         <activity
