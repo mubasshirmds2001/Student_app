@@ -84,78 +84,46 @@ public class Marks_activity extends AppCompatActivity {
             return;
         }
 
-//        String selectedStudentUid = getIntent().getStringExtra("selectedStudentUid");
-//        if (selectedStudentUid == null) {
-//            Toast.makeText(this, "Error: selected student ID is null", Toast.LENGTH_SHORT).show();
-//            return;
-//        }
-//        // Get the current user's ID
-//        String currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-//        DatabaseReference marksRef = FirebaseDatabase.getInstance().getReference("Marks").child(currentUserID).child(selectedStudentUid);
-//
-//        String DispMarkUSN = String.valueOf(FirebaseDatabase.getInstance().getReference("Marks").child(currentUserID).child(selectedStudentUid));
-//        Intent intent = new Intent(Marks_activity.this, Display_marks.class);
-//
-//// Put the selectedStudentUid as an extra in the Intent
-//        intent.putExtra("DispMarkUSN", DispMarkUSN);
-//
-//// Start the DisplayMarksActivity
-//        startActivity(intent);
-        String currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference marksRef = FirebaseDatabase.getInstance().getReference("Marks").child(currentUserID);
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference marksRef = database.getReference("Marks");
+        String marksId = marksRef.push().getKey();
+
         // Create a Marks object with the entered marks
-            Marks marks = new Marks(studentUSN, subject1Marks, subject2Marks, subject3Marks, subject4Marks, subject5Marks, subject6Marks, subject7Marks, subject8Marks, subject9Marks);
+        Marks marks = new Marks(studentUSN, subject1Marks, subject2Marks, subject3Marks, subject4Marks, subject5Marks, subject6Marks, subject7Marks, subject8Marks, subject9Marks);
 
-            // Set the marks data in the Firebase Realtime Database
-            marksRef.setValue(marks)
-                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                        @Override
-                        public void onSuccess(Void aVoid) {
-                            // Handle the success case
-                            Toast.makeText(Marks_activity.this, "Marks added successfully", Toast.LENGTH_SHORT).show();
-                            // Clear the marks fields after successful addition
-                            mSubject1.setText("");
-                            mSubject2.setText("");
-                            mSubject3.setText("");
-                            mSubject4.setText("");
-                            mSubject5.setText("");
-                            mSubject6.setText("");
-                            mSubject7.setText("");
 
-//                            // Update the student's total marks and average
-//                            double totalMarks = marks.getSubject1() + marks.getSubject2() + marks.getSubject3() +
-//                                    marks.getSubject4() + marks.getSubject5() + marks.getSubject6() + marks.getSubject7();
-//                            double averageMarks = totalMarks / 7;
-//                            marksRef.child("totalMarks").setValue(totalMarks);
-//                            marksRef.child("averageMarks").setValue(averageMarks)
-//                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-//                                        @Override
-//                                        public void onSuccess(Void aVoid) {
-//                                            // Handle the success case
-//                                            Toast.makeText(Marks_activity.this, "Student marks updated successfully", Toast.LENGTH_SHORT).show();
-//                                        }
-//                                    })
-//                                    .addOnFailureListener(new OnFailureListener() {
-//                                        @Override
-//                                        public void onFailure(@NonNull Exception e) {
-//                                            // Handle the failure case
-//                                            Toast.makeText(Marks_activity.this, "Failed to update student marks", Toast.LENGTH_SHORT).show();
-//                                        }
-//                                    });
-                        }
-                    })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            // Handle the failure case
-                            Toast.makeText(Marks_activity.this, "Failed to add marks", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-        }
+        // Set the marks data in the Firebase Realtime Database
+        marksRef.child(marksId).setValue(marks)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        // Handle the success case
+                        Toast.makeText(Marks_activity.this, "Marks added successfully", Toast.LENGTH_SHORT).show();
+                        // Clear the marks fields after successful addition
+                        mSubject1.setText("");
+                        mSubject2.setText("");
+                        mSubject3.setText("");
+                        mSubject4.setText("");
+                        mSubject5.setText("");
+                        mSubject6.setText("");
+                        mSubject7.setText("");
+                        mSubject8.setText("");
+                        mSubject9.setText("");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Handle the failure case
+                        Toast.makeText(Marks_activity.this, "Failed to add marks", Toast.LENGTH_SHORT).show();
+                    }
+                });
+    }
 
-            @Override
+
+    @Override
     public void onBackPressed() {
-        Intent intent = new Intent(Marks_activity.this, Display_students.class);
+        Intent intent = new Intent(Marks_activity.this, Lecturer_Home.class);
         startActivity(intent);
         finish();
     }

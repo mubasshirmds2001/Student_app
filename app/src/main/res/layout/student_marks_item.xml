@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp">
@@ -39,10 +40,11 @@
 
         <TextView
             android:id="@+id/student_USN"
-            android:layout_width="match_parent"
+            android:layout_width="250dp"
             android:layout_height="wrap_content"
             android:fontFamily="@font/gilroy_extrabold"
             android:text="@string/usn"
+            android:maxLines="1"
             android:layout_marginTop="30dp"
             android:layout_gravity="start"
             android:textAlignment="textStart"
@@ -88,17 +90,18 @@
 
             <TextView
                 android:id="@+id/subject1"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:text="@string/usn"
                 android:layout_marginTop="30dp"
                 android:layout_gravity="start"
-                android:textAlignment="textStart"
-                android:layout_marginLeft="10dp"
+                android:textAlignment="center"
                 android:layout_marginRight="20dp"
                 android:textColor="@color/color"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                tools:ignore="RtlCompat" />
 
         </LinearLayout>
 
@@ -136,13 +139,12 @@
 
             <TextView
                 android:id="@+id/subject2"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="56dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:text="NAME"
-                android:layout_gravity="start"
-                android:textAlignment="textStart"
-                android:layout_marginLeft="20dp"
+                android:text="@string/usn"
+                android:textAlignment="center"
                 android:layout_marginRight="20dp"
                 android:textColor="@color/color"
                 android:textSize="20sp"
@@ -184,10 +186,10 @@
                 android:id="@+id/subject3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:text="@string/dept"
-                android:textAlignment="textStart"
-                android:layout_marginLeft="10dp"
+                android:text="@string/usn"
+                android:textAlignment="center"
                 android:textColor="@color/color"
                 android:textSize="20sp" />
 
@@ -228,10 +230,10 @@
                 android:id="@+id/subject4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="89dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:layout_marginLeft="10dp"
-                android:text="@string/section2"
-                android:textAlignment="textStart"
+                android:text="@string/usn"
+                android:textAlignment="center"
                 android:textColor="@color/color"
                 android:textSize="20sp"
                 />
@@ -274,10 +276,10 @@
                 android:id="@+id/subject5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="54dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:layout_marginLeft="10dp"
-                android:text="@string/section2"
-                android:textAlignment="textStart"
+                android:text="@string/usn"
+                android:textAlignment="center"
                 android:textColor="@color/color"
                 android:textSize="20sp"
                 />
@@ -319,10 +321,10 @@
                 android:id="@+id/subject6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:layout_marginLeft="10dp"
-                android:text="@string/section2"
-                android:textAlignment="textStart"
+                android:text="@string/usn"
+                android:textAlignment="center"
                 android:textColor="@color/color"
                 android:textSize="20sp"
                 />
@@ -364,10 +366,10 @@
                 android:id="@+id/subject7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="29dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:layout_marginLeft="10dp"
-                android:text="@string/section2"
-                android:textAlignment="textStart"
+                android:text="@string/usn"
+                android:textAlignment="center"
                 android:textColor="@color/color"
                 android:textSize="20sp"
                 />
@@ -409,10 +411,10 @@
                 android:id="@+id/subject8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:layout_marginLeft="10dp"
-                android:text="@string/section2"
-                android:textAlignment="textStart"
+                android:text="@string/usn"
+                android:textAlignment="center"
                 android:textColor="@color/color"
                 android:textSize="20sp"
                 />
@@ -455,10 +457,10 @@
                 android:id="@+id/subject9"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp"
                 android:fontFamily="@font/gilroy_extrabold"
-                android:layout_marginLeft="10dp"
-                android:text="@string/section2"
-                android:textAlignment="textStart"
+                android:text="@string/usn"
+                android:textAlignment="center"
                 android:textColor="@color/color"
                 android:textSize="20sp"
                 />

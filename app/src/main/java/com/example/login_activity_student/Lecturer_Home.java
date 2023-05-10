@@ -72,4 +72,12 @@ public class Lecturer_Home extends AppCompatActivity {
             });
         }
     }
+    @Override
+    public void onBackPressed() {
+        // Close the app when the back button is pressed
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
+    }
+
 }

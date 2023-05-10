@@ -41,6 +41,7 @@ public class Student_Home extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Student_Home.this,Display_marks.class));
+                finish();
             }
         });
 
@@ -70,5 +71,13 @@ public class Student_Home extends AppCompatActivity {
                 });
             }
         }
+    @Override
+    public void onBackPressed() {
+        // Close the app when the back button is pressed
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
     }
+
+}
 

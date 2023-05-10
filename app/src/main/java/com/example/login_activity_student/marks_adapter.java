@@ -37,7 +37,7 @@ public class marks_adapter extends RecyclerView.Adapter<marks_adapter.ViewHolder
         Log.d("marks_adapter", "marks: " + marks);
         Log.d("marks_adapter", "holder: " + holder);
 
-        holder.student_usn.setText(marks.getSubject1());
+        holder.student_usn.setText(marks.getStudent_USN());
         holder.subject1.setText(marks.getSubject1());
         holder.subject2.setText(marks.getSubject2());
         holder.subject3.setText(marks.getSubject3());

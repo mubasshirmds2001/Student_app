@@ -54,7 +54,7 @@
 
                 <TextView
                     android:id="@+id/usntext"
-                    android:layout_width="210dp"
+                    android:layout_width="150dp"
                     android:tooltipText="Select Subject"
                     android:layout_height="49dp"
                     android:fontFamily="@font/gilroy_extrabold"
@@ -67,14 +67,14 @@
                     tools:ignore="UnusedAttribute" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="180dp"
+                    android:layout_width="220dp"
                     android:layout_height="49dp"
                     android:layout_marginStart="10dp"
                     android:textColorHint="#000000">
 
                     <EditText
                         android:id="@+id/ed_Stud_USN"
-                        android:layout_width="180dp"
+                        android:layout_width="220dp"
                         android:layout_height="49dp"
                         android:fontFamily="@font/gilroy_extrabold"
                         android:hint="USN"
