@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="10dp"
+            android:weightSum="100"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/bctv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="Basics of Programming :"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="start"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/subject1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="@string/usn"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="start"
+                android:textAlignment="textStart"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/color"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="100"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/cntv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="Computer Networks :"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="start"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/subject2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="NAME"
+                android:layout_gravity="start"
+                android:textAlignment="textStart"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:textColor="@color/color"
+                android:textSize="20sp"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="90dp"
+        android:gravity="center"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="100"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/cnltv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="Computer Netwokrs Lab :"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/subject3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="@string/dept"
+                android:textAlignment="textStart"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/color"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="130dp"
+        android:layout_marginBottom="10dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="100"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/dstv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="Data Structures :"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/subject4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:layout_marginLeft="10dp"
+                android:text="@string/section2"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="170dp"
+        android:layout_marginBottom="10dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="100"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/dsltv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="Data Structures Lab :"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="18sp"
+                />
+
+            <TextView
+                android:id="@+id/subject5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:layout_marginLeft="10dp"
+                android:text="@string/section2"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="210dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="100"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/daatv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="Design and Analysis\nof Algorithms :"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/subject6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:layout_marginLeft="10dp"
+                android:text="@string/section2"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="270dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="100"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/mfcatv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="Mathematical Foundation :"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/subject7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:layout_marginLeft="10dp"
+                android:text="@string/section2"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="310dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="100"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/osctv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="Operating System Concepts :"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/subject8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:layout_marginLeft="10dp"
+                android:text="@string/section2"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="350dp"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:weightSum="100"
+            android:layout_weight="1"
+            android:baselineAligned="false">
+
+            <TextView
+                android:id="@+id/rmitv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:text="Research Methology\nand IPR :"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/subject9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/gilroy_extrabold"
+                android:layout_marginLeft="10dp"
+                android:text="@string/section2"
+                android:textAlignment="textStart"
+                android:textColor="@color/color"
+                android:textSize="20sp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+

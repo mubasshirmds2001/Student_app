@@ -182,15 +182,15 @@ public class register_page extends AppCompatActivity {
                     DatabaseReference studentsRef = database.getReference("StudentsInfo");
                     String studentId = studentsRef.push().getKey();
 
-                    Intent intent = new Intent(register_page.this, Display_students.class);
-                    intent.putExtra("studentId", studentId);
-                    startActivity(intent);
                     studentsRef.child(studentId).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
                             if(task.isSuccessful()){
                                 Toast.makeText(register_page.this, "Student has registered successfully", Toast.LENGTH_SHORT).show();
+                                Intent intent1 = new Intent(register_page.this, Display_students.class);
+                                intent1.putExtra("studentId", studentId);
+                                startActivity(intent1);
                                 Intent intent = new Intent(register_page.this, login_page.class);
                                 startActivity(intent);
                             }

@@ -40,26 +40,26 @@ public class Display_students extends AppCompatActivity implements OnItemClickLi
         adapter = new student_Adapter(mStudentList,Display_students.this);
         recyclerView.setAdapter(adapter);
 
-        studentId =getIntent().getStringExtra("studentId");
+        studentId = getIntent().getStringExtra("selectedStudentUid");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         databaseReference = database.getReference("StudentsInfo");
 
-            databaseReference.addValueEventListener(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    ArrayList<Students> studentList = new ArrayList<>();
-                    for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                        Students student = snapshot.getValue(Students.class);
-                        studentList.add(student);
-                    }
-                    adapter.setStudents(studentList);
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList<Students> studentList = new ArrayList<>();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Students student = snapshot.getValue(Students.class);
+                    studentList.add(student);
                 }
+                adapter.setStudents(studentList);
+            }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    //Log.e(TAG, "Failed to read value.", databaseError.toException());
-                }
-            });
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                //Log.e(TAG, "Failed to read value.", databaseError.toException());
+            }
+        });
 
             adapter.setOnItemClickListener(new student_Adapter.OnItemClickListener() {
                 @Override

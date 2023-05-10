@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/home_back"
-    tools:context=".Marks_activity"
-    tools:ignore="ScrollViewCount"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".register_page">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@drawable/home_back"
+            android:contentDescription="@string/back" />
+
+    </FrameLayout>
 
     <ScrollView
         android:layout_width="match_parent"
@@ -17,638 +28,45 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            >
+            android:padding="24dp">
+
+            <TextView
+                android:id="@+id/Students_Details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+
+                android:fontFamily="@font/gilroy_extrabold"
+                android:gravity="start"
+                android:paddingLeft="10dp"
+                android:shadowColor="#57000000"
+                android:text="Marks Details"
+                android:textAlignment="center"
+                android:textColor="@color/color"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="10dp"
+                android:orientation="horizontal"
                 android:weightSum="100"
-                android:orientation="horizontal">
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:baselineAligned="false">
 
-                <TextView
-                    android:id="@+id/Students_Details"
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_view"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:fontFamily="@font/gilroy_extrabold"
-                    android:paddingStart="10dp"
-                    android:gravity="center"
-                    android:shadowColor="#57000000"
-                    android:text="@string/cie_1_marks"
-                    android:textColor="@color/color"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    tools:ignore="RtlSymmetry" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"
-                android:weightSum="100"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/spinner_subjects1"
-                    android:layout_width="210dp"
-                    android:layout_height="49dp"
-                    android:fontFamily="@font/gilroy_extrabold"
-                    android:text="@string/basics_of_programming_n_22mca110"
-                    android:textSize="18sp"
-                    android:textAlignment="center"
-                    android:textColor="@color/color"
-                    android:layout_marginTop="0dp"
-                    tools:ignore="UnusedAttribute" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Max1"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:hint="@string/max"
-                        android:text="50"
-                        android:inputType="none"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:focusable="false"
-                        android:clickable="false"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        android:autofillHints="50" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Mark1"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:inputType="number"
-                        android:text="50"
-                        android:gravity="center"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"
-                android:weightSum="100"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/spinner_subjects2"
-                    android:layout_width="210dp"
-                    android:layout_height="49dp"
-                    android:fontFamily="@font/gilroy_extrabold"
-                    android:text="@string/computer_networks_n_22mca14"
-                    android:textSize="18sp"
-                    android:textAlignment="center"
-                    android:textColor="@color/color"
-                    android:layout_marginTop="0dp"
-                    tools:ignore="UnusedAttribute" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Max2"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:hint="@string/max"
-                        android:text="50"
-                        android:inputType="none"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:focusable="false"
-                        android:clickable="false"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        android:autofillHints="50" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Mark2"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:inputType="number"
-                        android:text="50"
-                        android:gravity="center"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"
-                android:weightSum="100"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/spinner_subjects3"
-                    android:layout_width="210dp"
-                    android:layout_height="49dp"
-                    android:fontFamily="@font/gilroy_extrabold"
-                    android:text="@string/computer_networks_lab_n_22mca17"
-                    android:textSize="18sp"
-                    android:textAlignment="center"
-                    android:textColor="@color/color"
-                    android:layout_marginTop="0dp"
-                    tools:ignore="UnusedAttribute" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Max3"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:hint="@string/max"
-                        android:text="50"
-                        android:inputType="none"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:focusable="false"
-                        android:clickable="false"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        android:autofillHints="50" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Mark3"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:inputType="number"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        android:text="50"
-                        tools:ignore="InvalidId"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"
-                android:weightSum="100"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/spinner_subjects4"
-                    android:layout_width="210dp"
-                    android:layout_height="49dp"
-                    android:fontFamily="@font/gilroy_extrabold"
-                    android:text="@string/data_structures_n_22mca13"
-                    android:textSize="18sp"
-                    android:textAlignment="center"
-                    android:textColor="@color/color"
-                    android:layout_marginTop="0dp"
-                    tools:ignore="UnusedAttribute" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Max4"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:hint="@string/max"
-                        android:text="50"
-                        android:inputType="none"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:focusable="false"
-                        android:clickable="false"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        android:autofillHints="50" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Mark4"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:inputType="number"
-                        android:text="50"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"
-                android:weightSum="100"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/spinner_subjects5"
-                    android:layout_width="210dp"
-                    android:layout_height="49dp"
-                    android:fontFamily="@font/gilroy_extrabold"
-                    android:text="@string/data_structures_nalgorithms_lab_22mca16"
-                    android:textSize="16sp"
-                    android:textAlignment="center"
-                    android:textColor="@color/color"
-                    android:layout_marginTop="0dp"
-                    tools:ignore="UnusedAttribute" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Max5"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:hint="@string/max"
-                        android:text="50"
-                        android:inputType="none"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:focusable="false"
-                        android:clickable="false"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        android:autofillHints="50" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Mark5"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:inputType="number"
-                        android:text="50"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"
-                android:weightSum="100"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/spinner_subjects6"
-                    android:layout_width="210dp"
-                    android:layout_height="49dp"
-                    android:fontFamily="@font/gilroy_extrabold"
-                    android:text="@string/design_analysis_of_algorithms_22mca15"
-                    android:textSize="16sp"
-                    android:textAlignment="center"
-                    android:textColor="@color/color"
-                    android:layout_marginTop="0dp"
-                    tools:ignore="UnusedAttribute" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Max6"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:hint="@string/max"
-                        android:text="50"
-                        android:inputType="none"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:focusable="false"
-                        android:clickable="false"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        android:autofillHints="50" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Mark6"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:inputType="number"
-                        android:text="50"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"
-                android:weightSum="100"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/spinner_subjects7"
-                    android:layout_width="210dp"
-                    android:layout_height="49dp"
-                    android:fontFamily="@font/gilroy_extrabold"
-                    android:text="@string/mathematical_foundation_for_c_a_22mca11"
-                    android:textSize="16sp"
-                    android:textAlignment="center"
-                    android:textColor="@color/color"
-                    android:layout_marginTop="0dp"
-                    tools:ignore="UnusedAttribute" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Max7"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:hint="@string/max"
-                        android:text="50"
-                        android:inputType="none"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:focusable="false"
-                        android:clickable="false"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        android:autofillHints="50" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Mark7"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:inputType="number"
-                        android:text="50"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"
-                android:weightSum="100"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/spinner_subjects8"
-                    android:layout_width="210dp"
-                    android:layout_height="49dp"
-                    android:fontFamily="@font/gilroy_extrabold"
-                    android:text="@string/operating_system_concepts_22mca12"
-                    android:textSize="16sp"
-                    android:textAlignment="center"
-                    android:textColor="@color/color"
-                    android:layout_marginTop="0dp"
-                    tools:ignore="UnusedAttribute" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Max8"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:hint="@string/max"
-                        android:text="50"
-                        android:inputType="none"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:focusable="false"
-                        android:clickable="false"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        android:autofillHints="50" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Mark8"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:inputType="number"
-                        android:text="50"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="10dp"
-                android:layout_marginTop="20dp"
-                android:weightSum="100"
-                android:layout_weight="1"
-                android:orientation="horizontal">
-
-                <TextView
-                    android:id="@+id/spinner_subjects9"
-                    android:layout_width="210dp"
-                    android:layout_height="49dp"
-                    android:fontFamily="@font/gilroy_extrabold"
-                    android:text="@string/research_methodology_ipr_22mca16"
-                    android:textSize="16sp"
-                    android:textAlignment="center"
-                    android:textColor="@color/color"
-                    android:layout_marginTop="0dp"
-                    tools:ignore="UnusedAttribute" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Max9"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:hint="@string/max"
-                        android:text="50"
-                        android:inputType="none"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:focusable="false"
-                        android:clickable="false"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        android:autofillHints="50" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:layout_width="60dp"
-                    android:layout_height="49dp"
-                    android:layout_marginStart="10dp"
-                    android:textColorHint="#000000">
-
-                    <TextView
-                        android:id="@+id/Mark9"
-                        android:layout_width="60dp"
-                        android:layout_height="49dp"
-                        android:fontFamily="@font/gilroy_extrabold"
-                        android:inputType="number"
-                        android:text="50"
-                        android:textColor="@color/color"
-                        android:textSize="18sp"
-                        tools:ignore="InvalidId"
-                        />
-
-                </com.google.android.material.textfield.TextInputLayout>
+                    android:layout_height="match_parent" />
             </LinearLayout>
 
         </LinearLayout>
+
     </ScrollView>
 
-</LinearLayout>
+
+</RelativeLayout>

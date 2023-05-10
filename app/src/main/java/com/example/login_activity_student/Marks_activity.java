@@ -34,7 +34,6 @@ public class Marks_activity extends AppCompatActivity {
     private Button mAddMarks;
     private DatabaseReference mDatabaseReference;
     private FirebaseAuth mAuth;
-    private FirebaseUser mCurrentUser;
 
     private String mCurrentUserId;
     private String mStudentUSN;
@@ -44,8 +43,6 @@ public class Marks_activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_marks);
-
-        mDatabaseReference = FirebaseDatabase.getInstance().getReference().child("StudentsInfo");
 
         mAddMarks = findViewById(R.id.btn_addMarks);
 
@@ -58,12 +55,6 @@ public class Marks_activity extends AppCompatActivity {
         mSubject7 = findViewById(R.id.Min7);
         mSubject8 = findViewById(R.id.Min8);
         mSubject9 = findViewById(R.id.Min9);
-
-        Intent intent = getIntent();
-        if (intent != null) {
-            mCurrentUserId = intent.getStringExtra("currentUserId");
-            mStudentUSN = intent.getStringExtra("studentUSN");
-        }
 
         mAddMarks.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,14 +82,17 @@ public class Marks_activity extends AppCompatActivity {
             return;
         }
 
-        mAuth = FirebaseAuth.getInstance();
-        mCurrentUser = mAuth.getCurrentUser();
+        String selectedStudentUid = getIntent().getStringExtra("selectedStudentUid");
+        if (selectedStudentUid == null) {
+            Toast.makeText(this, "Error: selected student ID is null", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        // Get the current user's ID
+        String currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+        DatabaseReference marksRef = FirebaseDatabase.getInstance().getReference("Marks").child(currentUserID);
 
-        if (mCurrentUser != null) {
-            String mCurrentUserId = mCurrentUser.getUid();
-            DatabaseReference marksRef = FirebaseDatabase.getInstance().getReference("StudentsInfo").child(mCurrentUserId).child("Marks");
 
-            // Create a Marks object with the entered marks
+        // Create a Marks object with the entered marks
             Marks marks = new Marks(subject1Marks, subject2Marks, subject3Marks, subject4Marks, subject5Marks, subject6Marks, subject7Marks, subject8Marks, subject9Marks);
 
             // Set the marks data in the Firebase Realtime Database
@@ -117,26 +111,26 @@ public class Marks_activity extends AppCompatActivity {
                             mSubject6.setText("");
                             mSubject7.setText("");
 
-                            // Update the student's total marks and average
-                            double totalMarks = marks.getSubject1() + marks.getSubject2() + marks.getSubject3() +
-                                    marks.getSubject4() + marks.getSubject5() + marks.getSubject6() + marks.getSubject7();
-                            double averageMarks = totalMarks / 7;
-                            marksRef.child("totalMarks").setValue(totalMarks);
-                            marksRef.child("averageMarks").setValue(averageMarks)
-                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
-                                        @Override
-                                        public void onSuccess(Void aVoid) {
-                                            // Handle the success case
-                                            Toast.makeText(Marks_activity.this, "Student marks updated successfully", Toast.LENGTH_SHORT).show();
-                                        }
-                                    })
-                                    .addOnFailureListener(new OnFailureListener() {
-                                        @Override
-                                        public void onFailure(@NonNull Exception e) {
-                                            // Handle the failure case
-                                            Toast.makeText(Marks_activity.this, "Failed to update student marks", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
+//                            // Update the student's total marks and average
+//                            double totalMarks = marks.getSubject1() + marks.getSubject2() + marks.getSubject3() +
+//                                    marks.getSubject4() + marks.getSubject5() + marks.getSubject6() + marks.getSubject7();
+//                            double averageMarks = totalMarks / 7;
+//                            marksRef.child("totalMarks").setValue(totalMarks);
+//                            marksRef.child("averageMarks").setValue(averageMarks)
+//                                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                                        @Override
+//                                        public void onSuccess(Void aVoid) {
+//                                            // Handle the success case
+//                                            Toast.makeText(Marks_activity.this, "Student marks updated successfully", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    })
+//                                    .addOnFailureListener(new OnFailureListener() {
+//                                        @Override
+//                                        public void onFailure(@NonNull Exception e) {
+//                                            // Handle the failure case
+//                                            Toast.makeText(Marks_activity.this, "Failed to update student marks", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    });
                         }
                     })
                     .addOnFailureListener(new OnFailureListener() {
@@ -147,7 +141,6 @@ public class Marks_activity extends AppCompatActivity {
                         }
                     });
         }
-    }
 
             @Override
     public void onBackPressed() {

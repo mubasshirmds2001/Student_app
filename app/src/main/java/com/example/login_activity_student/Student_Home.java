@@ -40,18 +40,16 @@ public class Student_Home extends AppCompatActivity {
         Marks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Student_Home.this,CIE_decider.class));
+                startActivity(new Intent(Student_Home.this,Display_marks.class));
             }
         });
 
         firebaseDatabase = FirebaseDatabase.getInstance();
         stud_name = findViewById(R.id.Student_name);
-
+        String studentid = getIntent().getStringExtra("selectedStudentUid");
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-        if (user != null) {
-            String studentUid = getIntent().getStringExtra("studentUid");
-            if (studentUid != null) {
-                DatabaseReference databaseRef = firebaseDatabase.getReference("StudentsInfo").child(studentUid);
+            if (studentid != null) {
+                DatabaseReference databaseRef = firebaseDatabase.getReference("StudentsInfo").child(studentid);
                 databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(@NonNull DataSnapshot snapshot) {
@@ -73,5 +71,4 @@ public class Student_Home extends AppCompatActivity {
             }
         }
     }
-}
 

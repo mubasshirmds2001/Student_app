@@ -11,8 +11,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.firebase.database.DataSnapshot;
-
 import java.util.ArrayList;
 
     public class student_Adapter extends RecyclerView.Adapter<student_Adapter.StudentViewHolder> {
@@ -55,17 +53,16 @@ import java.util.ArrayList;
             holder.student_year.setText(students.getStudent_year());
             holder.student_section.setText(students.getStudent_section());
 
-            holder.itemView.setTag(students.getStudent_USN());
+            // get the selected student's UID
+            String selectedStudentUid = students.getUser_id();
+
+            holder.itemView.setTag(students.getUser_id());
 
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    // get the selected DataSnapshot object
-                    Students selectedStudentSnapshot = mStudentList.get(position);
-
-                    // get the UID of the selected student
-                    String selectedStudentUid = selectedStudentSnapshot.getUser_id();
-
+                    // Get the selected student ID
+                    String selectedStudentUid = mStudentList.get(position).getStudent_USN();
                     // create an Intent to start the Marks_activity
                     Intent intent = new Intent(mcontext, Marks_activity.class);
 
