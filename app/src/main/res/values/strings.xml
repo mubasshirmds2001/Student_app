@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Login_Activity_student</string>
+    <string name="app_name">Smart Track</string>
     <string name="back">back</string>
     <string name="shape">shape</string>
     <string name="student">Student Login</string>

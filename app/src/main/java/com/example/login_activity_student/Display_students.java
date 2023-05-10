@@ -27,35 +27,32 @@ public class Display_students extends AppCompatActivity implements OnItemClickLi
     private RecyclerView recyclerView;
     private DatabaseReference databaseReference;
     private ArrayList<Students> mStudentList;
-    private String currentUserUid;
+    private String studentId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_students);
 
-        currentUserUid = getIntent().getStringExtra("selectedStudentUid");
-
         recyclerView = findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(Display_students.this));
         mStudentList = new ArrayList<>();
-        adapter = new student_Adapter(this, mStudentList, currentUserUid);
+        adapter = new student_Adapter(mStudentList,Display_students.this);
         recyclerView.setAdapter(adapter);
 
-        if (currentUserUid != null && !currentUserUid.isEmpty()) {
+        studentId =getIntent().getStringExtra("studentId");
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        databaseReference = database.getReference("StudentsInfo");
 
-
-            databaseReference = FirebaseDatabase.getInstance().getReference("StudentsInfo").child(currentUserUid).child("Marks");
             databaseReference.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                    ArrayList<Students> students = new ArrayList<>();
-
+                    ArrayList<Students> studentList = new ArrayList<>();
                     for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                         Students student = snapshot.getValue(Students.class);
-                        students.add(student);
+                        studentList.add(student);
                     }
-                    adapter.setStudents(students);
+                    adapter.setStudents(studentList);
                 }
 
                 @Override
@@ -64,20 +61,19 @@ public class Display_students extends AppCompatActivity implements OnItemClickLi
                 }
             });
 
-//            adapter.setOnItemClickListener(new student_Adapter.OnItemClickListener() {
-//                @Override
-//                public void onItemClick(Students students, String currentUserUid) {
-//                    Intent intent = new Intent(Display_students.this, Marks_activity.class);
-//                    intent.putExtra("currentUserUid", currentUserUid);
-//                    startActivity(intent);
-//                    Intent intent1 = new Intent(Display_students.this, Marks_activity.class);
-//                    intent.putExtra("selectedStudentUid", students.getUser_id());
-//                    startActivity(intent1);
-//                    Toast.makeText(Display_students.this, "Clicked on " + students.getStudent_name(), Toast.LENGTH_LONG).show();
-//                    finish();
-//                }
-//            });
-        }
+            adapter.setOnItemClickListener(new student_Adapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(Students students, String currentUserUid) {
+                    Intent intent = new Intent(Display_students.this, Marks_activity.class);
+                    intent.putExtra("currentUserUid", currentUserUid);
+                    startActivity(intent);
+                    Intent intent1 = new Intent(Display_students.this, Marks_activity.class);
+                    intent.putExtra("selectedStudentUid", students.getUser_id());
+                    startActivity(intent1);
+                    Toast.makeText(Display_students.this, "Clicked on " + students.getStudent_name(), Toast.LENGTH_LONG).show();
+                    finish();
+                }
+            });
     }
 
     @Override
@@ -92,7 +88,7 @@ public class Display_students extends AppCompatActivity implements OnItemClickLi
 
     @Override
     public void onItemClick(int position) {
-        Students clickedStudent = mStudentList.get(position);
-        adapter.setOnItemClickListener(clickedStudent, currentUserUid);
+//        Students clickedStudent = mStudentList.get(position);
+//        adapter.setOnItemClickListener(clickedStudent, studentId);
     }
 }

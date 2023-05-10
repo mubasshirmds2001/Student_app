@@ -22,13 +22,9 @@ import java.util.ArrayList;
         private OnItemClickListener mlistener;
         private String currentUserUid;
 
-        public student_Adapter(Context context,ArrayList<Students> studentList,String currentUserUid) {
-            this.mcontext = context;
+        public student_Adapter(ArrayList<Students> studentList, Context context) {
             this.mStudentList = studentList;
-            this.currentUserUid = currentUserUid;
-        }
-
-        public void setOnItemClickListener(Students clickedStudent, String currentUserUid) {
+            this.mcontext = context;
         }
 
         public interface OnItemClickListener {
@@ -78,7 +74,6 @@ import java.util.ArrayList;
 
                     // start the Marks_activity
                     mcontext.startActivity(intent);
-
                 }
             });
         }

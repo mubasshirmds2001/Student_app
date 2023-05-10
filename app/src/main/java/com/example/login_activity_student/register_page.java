@@ -178,17 +178,19 @@ public class register_page extends AppCompatActivity {
                     student.setStudent_year(year);
                     student.setStudent_section(section);
 
+                    FirebaseDatabase database = FirebaseDatabase.getInstance();
+                    DatabaseReference studentsRef = database.getReference("StudentsInfo");
+                    String studentId = studentsRef.push().getKey();
 
-                    FirebaseDatabase.getInstance().getReference("StudentsInfo").child(Objects.requireNonNull(FirebaseAuth.getInstance().getCurrentUser()).getUid()).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    Intent intent = new Intent(register_page.this, Display_students.class);
+                    intent.putExtra("studentId", studentId);
+                    startActivity(intent);
+                    studentsRef.child(studentId).setValue(student).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
 
                             if(task.isSuccessful()){
                                 Toast.makeText(register_page.this, "Student has registered successfully", Toast.LENGTH_SHORT).show();
-                                Intent intent1 = new Intent(register_page.this, Marks_activity.class);
-                                intent1.putExtra("studentId", FirebaseAuth.getInstance().getCurrentUser().getUid());
-                                startActivity(intent1);
-
                                 Intent intent = new Intent(register_page.this, login_page.class);
                                 startActivity(intent);
                             }

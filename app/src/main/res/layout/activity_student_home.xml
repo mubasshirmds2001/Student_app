@@ -54,7 +54,7 @@
                 android:layout_marginTop="-30dp"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:gravity="start"
-                android:paddingLeft="10dp"
+                android:paddingStart="10dp"
                 android:shadowColor="#57000000"
                 android:text=""
                 android:textAlignment="textStart"

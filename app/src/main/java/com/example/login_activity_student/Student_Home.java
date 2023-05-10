@@ -49,26 +49,28 @@ public class Student_Home extends AppCompatActivity {
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {
-            String uid = user.getUid();
-            DatabaseReference databaseRef = firebaseDatabase.getReference("StudentsInfo").child(uid);
-            databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
-                @Override
-                public void onDataChange(@NonNull DataSnapshot snapshot) {
-                    Log.d(TAG, "onDataChange: " + snapshot.toString());
-                    if (snapshot.exists()) {
-                        String name = snapshot.child("student_name").getValue(String.class);
-                        Log.d(TAG, "student_name: " + name);
-                        if (name != null) {
-                            stud_name.setText("Welcome, " + name);
+            String studentUid = getIntent().getStringExtra("studentUid");
+            if (studentUid != null) {
+                DatabaseReference databaseRef = firebaseDatabase.getReference("StudentsInfo").child(studentUid);
+                databaseRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot snapshot) {
+                        Log.d(TAG, "onDataChange: " + snapshot.toString());
+                        if (snapshot.exists()) {
+                            String name = snapshot.child("student_name").getValue(String.class);
+                            Log.d(TAG, "student_name: " + name);
+                            if (name != null) {
+                                stud_name.setText("Welcome, " + name);
+                            }
                         }
                     }
-                }
 
-                @Override
-                public void onCancelled(@NonNull DatabaseError error) {
-                    Log.e(TAG, "Failed to read value.", error.toException());
-                }
-            });
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError error) {
+                        Log.e(TAG, "Failed to read value.", error.toException());
+                    }
+                });
+            }
         }
     }
 }
