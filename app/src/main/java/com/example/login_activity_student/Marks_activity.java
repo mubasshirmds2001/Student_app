@@ -30,7 +30,7 @@ import java.util.Objects;
 
 public class Marks_activity extends AppCompatActivity {
 
-    private EditText mSubject1, mSubject2, mSubject3, mSubject4, mSubject5, mSubject6, mSubject7, mSubject8, mSubject9;
+    private EditText mSubject1, mSubject2, mSubject3, mSubject4, mSubject5, mSubject6, mSubject7, mSubject8, mSubject9,mstudentUSN;
     private Button mAddMarks;
     private DatabaseReference mDatabaseReference;
     private FirebaseAuth mAuth;
@@ -46,6 +46,7 @@ public class Marks_activity extends AppCompatActivity {
 
         mAddMarks = findViewById(R.id.btn_addMarks);
 
+        mstudentUSN = findViewById(R.id.ed_Stud_USN);
         mSubject1 = findViewById(R.id.Min1);
         mSubject2 = findViewById(R.id.Min2);
         mSubject3 = findViewById(R.id.Min3);
@@ -65,6 +66,7 @@ public class Marks_activity extends AppCompatActivity {
     }
 
     private void saveMarks() {
+        String studentUSN = mstudentUSN.getText().toString();
         String subject1Marks = mSubject1.getText().toString();
         String subject2Marks = mSubject2.getText().toString();
         String subject3Marks = mSubject3.getText().toString();
@@ -75,25 +77,34 @@ public class Marks_activity extends AppCompatActivity {
         String subject8Marks = mSubject8.getText().toString();
         String subject9Marks = mSubject9.getText().toString();
 
-        if (TextUtils.isEmpty(subject1Marks) || TextUtils.isEmpty(subject2Marks) || TextUtils.isEmpty(subject3Marks) ||
+        if (TextUtils.isEmpty(studentUSN) || TextUtils.isEmpty(subject1Marks) || TextUtils.isEmpty(subject2Marks) || TextUtils.isEmpty(subject3Marks) ||
                 TextUtils.isEmpty(subject4Marks) || TextUtils.isEmpty(subject5Marks) || TextUtils.isEmpty(subject6Marks) ||
                 TextUtils.isEmpty(subject7Marks) || TextUtils.isEmpty(subject8Marks) || TextUtils.isEmpty(subject9Marks)) {
             Toast.makeText(Marks_activity.this, "Please enter marks for all subjects", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        String selectedStudentUid = getIntent().getStringExtra("selectedStudentUid");
-        if (selectedStudentUid == null) {
-            Toast.makeText(this, "Error: selected student ID is null", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        // Get the current user's ID
+//        String selectedStudentUid = getIntent().getStringExtra("selectedStudentUid");
+//        if (selectedStudentUid == null) {
+//            Toast.makeText(this, "Error: selected student ID is null", Toast.LENGTH_SHORT).show();
+//            return;
+//        }
+//        // Get the current user's ID
+//        String currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
+//        DatabaseReference marksRef = FirebaseDatabase.getInstance().getReference("Marks").child(currentUserID).child(selectedStudentUid);
+//
+//        String DispMarkUSN = String.valueOf(FirebaseDatabase.getInstance().getReference("Marks").child(currentUserID).child(selectedStudentUid));
+//        Intent intent = new Intent(Marks_activity.this, Display_marks.class);
+//
+//// Put the selectedStudentUid as an extra in the Intent
+//        intent.putExtra("DispMarkUSN", DispMarkUSN);
+//
+//// Start the DisplayMarksActivity
+//        startActivity(intent);
         String currentUserID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference marksRef = FirebaseDatabase.getInstance().getReference("Marks").child(currentUserID);
-
-
         // Create a Marks object with the entered marks
-            Marks marks = new Marks(subject1Marks, subject2Marks, subject3Marks, subject4Marks, subject5Marks, subject6Marks, subject7Marks, subject8Marks, subject9Marks);
+            Marks marks = new Marks(studentUSN, subject1Marks, subject2Marks, subject3Marks, subject4Marks, subject5Marks, subject6Marks, subject7Marks, subject8Marks, subject9Marks);
 
             // Set the marks data in the Firebase Realtime Database
             marksRef.setValue(marks)

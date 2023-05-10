@@ -7,10 +7,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -25,39 +27,41 @@ import java.util.Objects;
 
 public class Display_marks extends AppCompatActivity {
     private RecyclerView recyclerView;
+    private TextView Stud_usn;
     private marks_adapter adapter;
     private ArrayList<Marks> marksList;
-    private DatabaseReference databaseReference;
+    private DatabaseReference marksRef;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_display_marks);
 
-        recyclerView = findViewById(R.id.recycler_view);
+        Stud_usn = (TextView) findViewById(R.id.student_USN);
+        recyclerView =(RecyclerView) findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(Display_marks.this));
         marksList = new ArrayList<>();
         adapter = new marks_adapter(marksList);
         recyclerView.setAdapter(adapter);
 
-        String studentId = getIntent().getStringExtra("selectedStudentUid");
         FirebaseDatabase database = FirebaseDatabase.getInstance();
-        databaseReference = database.getReference("Marks");
+        DatabaseReference marksRef = database.getInstance().getReference("Marks");
 
-        databaseReference.addValueEventListener(new ValueEventListener() {
+        marksRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ArrayList<Marks> marksList = new ArrayList<>();
-                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                    Marks marks = snapshot1.getValue(Marks.class);  // Use snapshot1 instead of snapshot
-                    marksList.add(marks);
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                ArrayList<Marks> markslst = new ArrayList<>();
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    Marks marks = snapshot.getValue(Marks.class);
+                    markslst.add(marks);
                 }
-                adapter.setMarks(marksList);
+                adapter.setMarks(markslst);
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.e("DisplayMarksActivity", "Failed to read marks.", error.toException());
+                //Log.e(TAG, "Failed to read value.", databaseError.toException());
             }
         });
     }

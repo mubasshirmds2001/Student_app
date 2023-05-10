@@ -3,6 +3,7 @@ package com.example.login_activity_student;
 public class Marks {
 
     private String subject1;
+    private String student_USN;
     private String subject2;
     private String subject3;
     private String subject4;
@@ -15,7 +16,8 @@ public class Marks {
     public Marks(){
     }
 
-    public Marks(String subject1Marks, String subject2Marks, String subject3Marks, String subject4Marks, String subject5Marks, String subject6Marks, String subject7Marks, String subject8Marks,String subject9Marks) {
+    public Marks(String stud_USN, String subject1Marks, String subject2Marks, String subject3Marks, String subject4Marks, String subject5Marks, String subject6Marks, String subject7Marks, String subject8Marks,String subject9Marks) {
+        this.student_USN = stud_USN;
         this.subject1 = subject1Marks;
         this.subject2 = subject2Marks;
         this.subject3 = subject3Marks;
@@ -28,6 +30,13 @@ public class Marks {
     }
 
 
+    public String getStudent_USN() {
+        return student_USN;
+    }
+
+    public void setStudent_USN(String student_USN) {
+        this.student_USN = student_USN;
+    }
 
     public String getSubject1() {
         return subject1;

@@ -64,12 +64,6 @@ public class Display_students extends AppCompatActivity implements OnItemClickLi
             adapter.setOnItemClickListener(new student_Adapter.OnItemClickListener() {
                 @Override
                 public void onItemClick(Students students, String currentUserUid) {
-                    Intent intent = new Intent(Display_students.this, Marks_activity.class);
-                    intent.putExtra("currentUserUid", currentUserUid);
-                    startActivity(intent);
-                    Intent intent1 = new Intent(Display_students.this, Marks_activity.class);
-                    intent.putExtra("selectedStudentUid", students.getUser_id());
-                    startActivity(intent1);
                     Toast.makeText(Display_students.this, "Clicked on " + students.getStudent_name(), Toast.LENGTH_LONG).show();
                     finish();
                 }

@@ -43,6 +43,50 @@
 
     </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:layout_marginTop="20dp"
+                android:weightSum="100"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/usntext"
+                    android:layout_width="210dp"
+                    android:tooltipText="Select Subject"
+                    android:layout_height="49dp"
+                    android:fontFamily="@font/gilroy_extrabold"
+                    android:text="Student USN"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+                    android:textColor="@color/color"
+                    android:gravity="center"
+                    android:layout_marginTop="-10dp"
+                    tools:ignore="UnusedAttribute" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="180dp"
+                    android:layout_height="49dp"
+                    android:layout_marginStart="10dp"
+                    android:textColorHint="#000000">
+
+                    <EditText
+                        android:id="@+id/ed_Stud_USN"
+                        android:layout_width="180dp"
+                        android:layout_height="49dp"
+                        android:fontFamily="@font/gilroy_extrabold"
+                        android:hint="USN"
+                        android:inputType="text"
+                        android:textColor="@color/color"
+                        android:textSize="16sp"
+                        tools:ignore="InvalidId"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

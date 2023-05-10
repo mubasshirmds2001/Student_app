@@ -53,26 +53,20 @@ import java.util.ArrayList;
             holder.student_year.setText(students.getStudent_year());
             holder.student_section.setText(students.getStudent_section());
 
-            // get the selected student's UID
-            String selectedStudentUid = students.getUser_id();
+            // Get the selected student UID
+            String selectedStudentUid = mStudentList.get(position).getUser_id();
 
             holder.itemView.setTag(students.getUser_id());
+            holder.itemView.setTag(students.getStudent_USN());
 
-            holder.itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    // Get the selected student ID
-                    String selectedStudentUid = mStudentList.get(position).getStudent_USN();
-                    // create an Intent to start the Marks_activity
-                    Intent intent = new Intent(mcontext, Marks_activity.class);
 
-                    // add the selected student's UID as an extra to the Intent
-                    intent.putExtra("selectedStudentUid", selectedStudentUid);
 
-                    // start the Marks_activity
-                    mcontext.startActivity(intent);
-                }
-            });
+//            holder.itemView.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View view) {
+//
+//                }
+//            });
         }
 
 

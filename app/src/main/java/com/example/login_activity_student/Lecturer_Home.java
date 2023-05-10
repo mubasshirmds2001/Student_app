@@ -44,7 +44,7 @@ public class Lecturer_Home extends AppCompatActivity {
         marks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Lecturer_Home.this,Display_students.class));
+                startActivity(new Intent(Lecturer_Home.this,Marks_activity.class));
                 finish();
             }
         });

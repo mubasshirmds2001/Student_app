@@ -10,7 +10,56 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:baselineAligned="false">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:layout_marginTop="10dp"
+        android:weightSum="100"
+        android:layout_weight="1"
+        android:baselineAligned="false">
+
+        <TextView
+            android:id="@+id/USNtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:text="USN :"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:textColor="@color/color"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/student_USN"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gilroy_extrabold"
+            android:text="@string/usn"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="start"
+            android:textAlignment="textStart"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:textColor="@color/color"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="100"
+        android:layout_marginTop="70dp"
         android:gravity="center"
         android:baselineAligned="false">
 
@@ -21,7 +70,6 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="1dp"
-            android:layout_marginBottom="10dp"
             android:weightSum="100"
             android:layout_weight="1"
             android:baselineAligned="false">
@@ -61,7 +109,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="100dp"
         android:gravity="center"
         android:baselineAligned="false">
 
@@ -81,7 +129,6 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:text="Computer Networks :"
-                android:layout_marginTop="30dp"
                 android:layout_gravity="start"
                 android:textAlignment="textStart"
                 android:textColor="@color/color"
@@ -107,8 +154,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:weightSum="100"
-        android:layout_marginTop="90dp"
+        android:weightSum="130"
+        android:layout_marginTop="130dp"
         android:gravity="center"
         android:baselineAligned="false">
 
@@ -152,7 +199,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100"
-        android:layout_marginTop="130dp"
+        android:layout_marginTop="160dp"
         android:layout_marginBottom="10dp"
         android:baselineAligned="false">
 
@@ -198,7 +245,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100"
-        android:layout_marginTop="170dp"
+        android:layout_marginTop="190dp"
         android:layout_marginBottom="10dp"
         android:baselineAligned="false">
 
@@ -244,7 +291,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100"
-        android:layout_marginTop="210dp"
+        android:layout_marginTop="220dp"
         android:baselineAligned="false">
 
         <LinearLayout
@@ -334,7 +381,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100"
-        android:layout_marginTop="310dp"
+        android:layout_marginTop="300dp"
         android:baselineAligned="false">
 
         <LinearLayout
@@ -379,7 +426,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:weightSum="100"
-        android:layout_marginTop="350dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginTop="330dp"
         android:baselineAligned="false">
 
         <LinearLayout
