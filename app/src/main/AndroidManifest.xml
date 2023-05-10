@@ -56,9 +56,6 @@
         <activity
             android:name=".first_page"
             android:exported="true" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

@@ -250,11 +250,11 @@
 
             <EditText
                 android:id="@+id/Max3"
-                android:layout_width="60dp"
+                android:layout_width="80dp"
                 android:layout_height="49dp"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:hint="@string/max"
-                android:text="50"
+                android:text="100"
                 android:inputType="none"
                 android:focusable="false"
                 android:clickable="false"
@@ -381,11 +381,11 @@
 
             <EditText
                 android:id="@+id/Max5"
-                android:layout_width="60dp"
+                android:layout_width="80dp"
                 android:layout_height="49dp"
                 android:fontFamily="@font/gilroy_extrabold"
                 android:hint="@string/max"
-                android:text="50"
+                android:text="100"
                 android:inputType="none"
                 android:focusable="false"
                 android:clickable="false"

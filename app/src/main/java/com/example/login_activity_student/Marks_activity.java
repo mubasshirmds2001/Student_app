@@ -77,10 +77,32 @@ public class Marks_activity extends AppCompatActivity {
         String subject8Marks = mSubject8.getText().toString();
         String subject9Marks = mSubject9.getText().toString();
 
+
         if (TextUtils.isEmpty(studentUSN) || TextUtils.isEmpty(subject1Marks) || TextUtils.isEmpty(subject2Marks) || TextUtils.isEmpty(subject3Marks) ||
                 TextUtils.isEmpty(subject4Marks) || TextUtils.isEmpty(subject5Marks) || TextUtils.isEmpty(subject6Marks) ||
                 TextUtils.isEmpty(subject7Marks) || TextUtils.isEmpty(subject8Marks) || TextUtils.isEmpty(subject9Marks)) {
             Toast.makeText(Marks_activity.this, "Please enter marks for all subjects", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        int marks1 = Integer.parseInt(subject1Marks);
+        int marks2 = Integer.parseInt(subject2Marks);
+        int marks3 = Integer.parseInt(subject3Marks);
+        int marks4 = Integer.parseInt(subject4Marks);
+        int marks5 = Integer.parseInt(subject5Marks);
+        int marks6 = Integer.parseInt(subject6Marks);
+        int marks7 = Integer.parseInt(subject7Marks);
+        int marks8 = Integer.parseInt(subject8Marks);
+        int marks9 = Integer.parseInt(subject9Marks);
+
+        if (marks1 < 0 || marks1 > 50 || marks2 < 0 || marks2 > 50 ||
+                marks4 < 0 || marks4 > 50 ||  marks6 < 0 || marks6 > 50 ||
+                marks7 < 0 || marks7 > 50 || marks8 < 0 || marks8 > 50 || marks9 < 0 || marks9 > 50) {
+            Toast.makeText(Marks_activity.this, "Marks should be between 0 and 50 for all subjects", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else if (marks3 < 0 || marks3 > 100 ||marks5 < 0 || marks5 > 100){
+            Toast.makeText(Marks_activity.this, "Marks should be between 0 and 100 for Lab subjects", Toast.LENGTH_SHORT).show();
             return;
         }
 

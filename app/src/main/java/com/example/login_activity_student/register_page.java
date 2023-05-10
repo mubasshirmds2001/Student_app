@@ -207,4 +207,11 @@ public class register_page extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(register_page.this, first_page.class);
+        startActivity(intent);
+        finish();
+    }
 }
