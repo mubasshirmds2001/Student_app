@@ -40,7 +40,7 @@ public class Student_Home extends AppCompatActivity {
         Marks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Student_Home.this,Display_marks.class));
+                startActivity(new Intent(Student_Home.this,CIE_Display_Decider.class));
                 finish();
             }
         });

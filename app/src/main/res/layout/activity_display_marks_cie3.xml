@@ -40,7 +40,7 @@
                 android:gravity="start"
                 android:paddingLeft="10dp"
                 android:shadowColor="#57000000"
-                android:text="Marks Details"
+                android:text="CIE-3 Marks Details"
                 android:textAlignment="center"
                 android:textColor="@color/color"
                 android:textSize="24sp"

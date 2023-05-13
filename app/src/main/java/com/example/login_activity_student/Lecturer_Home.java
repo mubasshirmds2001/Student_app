@@ -19,6 +19,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class Lecturer_Home extends AppCompatActivity {
 
     private TextView Lect_name;
@@ -44,7 +46,7 @@ public class Lecturer_Home extends AppCompatActivity {
         marks.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Lecturer_Home.this,Marks_activity.class));
+                startActivity(new Intent(Lecturer_Home.this,CIE_decider.class));
                 finish();
             }
         });

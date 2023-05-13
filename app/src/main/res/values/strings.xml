@@ -34,7 +34,7 @@
     <string name="dept">DEPT</string>
     <string name="year1">YEAR</string>
     <string name="section2">SECTION</string>
-    <string name="add_cie_marks_details">Add CIE Marks Details</string>
+    <string name="add_cie_marks_details">Add CIE-1 Marks Details</string>
     <string name="max">Max</string>
     <string name="sem">Marks</string>
     <string name="max2">Max</string>
@@ -51,4 +51,70 @@
     <string name="data_structures_n_22mca13">Data Structures\n(22MCA13)</string>
     <string name="add_marks">ADD MARKS</string>
     <string name="cie_1_marks">CIE - 1 Marks</string>
+    <string name="usn_spinner_content_description">us</string>
+    <string name="cie2">Add CIE-2 Marks Details</string>
+    <string name="cie3">Add CIE-3 Marks Details</string>
+
+    <array name="usn_list">
+        <item>22MC01</item>
+        <item>22MC02</item>
+        <item>22MC03</item>
+        <item>22MC04</item>
+        <item>22MC05</item>
+        <item>22MC06</item>
+        <item>22MC07</item>
+        <item>22MC08</item>
+        <item>22MC09</item>
+        <item>22MC010</item>
+        <item>22MC011</item>
+        <item>22MC012</item>
+        <item>22MC013</item>
+        <item>22MC014</item>
+        <item>22MC015</item>
+        <item>22MC016</item>
+        <item>22MC017</item>
+        <item>22MC018</item>
+        <item>22MC019</item>
+        <item>22MC020</item>
+        <item>22MC021</item>
+        <item>22MC022</item>
+        <item>22MC023</item>
+        <item>22MC024</item>
+        <item>22MC025</item>
+        <item>22MC026</item>
+        <item>22MC027</item>
+        <item>22MC028</item>
+        <item>22MC029</item>
+        <item>22MC030</item>
+        <item>22MC031</item>
+        <item>22MC032</item>
+        <item>22MC033</item>
+        <item>22MC034</item>
+        <item>22MC035</item>
+        <item>22MC036</item>
+        <item>22MC037</item>
+        <item>22MC038</item>
+        <item>22MC039</item>
+        <item>22MC040</item>
+        <item>22MC041</item>
+        <item>22MC042</item>
+        <item>22MC043</item>
+        <item>22MC044</item>
+        <item>22MC045</item>
+        <item>22MC046</item>
+        <item>22MC047</item>
+        <item>22MC048</item>
+        <item>22MC049</item>
+        <item>22MC050</item>
+        <item>22MC051</item>
+        <item>22MC052</item>
+        <item>22MC053</item>
+        <item>22MC054</item>
+        <item>22MC055</item>
+        <item>22MC056</item>
+        <item>22MC057</item>
+        <item>22MC058</item>
+        <item>22MC059</item>
+        <item>22MC060</item>
+    </array>
 </resources>
